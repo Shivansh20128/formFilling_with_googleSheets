@@ -1,3 +1,11 @@
+function isValidEmail(email) {
+  // Regular expression for a basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Test the email against the regex
+  return emailRegex.test(email);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("userForm");
 
@@ -10,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Validate Name
         if (!business_nameField.value.trim()) {
-            business_nameError.textContent = "Business Name is required";
+            business_nameError.textContent = "Business Name is required!";
             business_nameField.style.border = "1px solid red";
         } else {
-            business_nameField.style.border = "";
+            business_nameField.style.border = "1px solid green";
         }
     };
 
@@ -25,12 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
         emailError.textContent = "";
 
         // Validate Age
-//        const email = emailField.value.trim();
-        if (!emailField.value.trim()) {
+        const email = emailField.value.trim();
+        if(email.length==0){
+            emailError.textContent = "Email ID is required!";
+            emailField.style.border = "1px solid red";
+        }
+        else if (!isValidEmail(email)) {
             emailError.textContent = "Please enter a valid email";
             emailField.style.border = "1px solid red";
         } else {
-            emailField.style.border = "";
+            emailField.style.border = "1px solid green";
         }
     };
 
@@ -40,14 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Reset previous error messages
         phone_numberError.textContent = "";
+        const phoneRegex = /^\d{10}$/;
 
         // Validate Weight
         const phone_number = phone_numberField.value.trim();
-        if (isNaN(phone_number)) {
+        if (phone_number.length==0) {
+            phone_numberError.textContent = "Phone number is required!";
+            phone_numberField.style.border = "1px solid red";
+        }
+
+        else if (!phoneRegex.test(phone_number)) {
             phone_numberError.textContent = "Please enter a valid phone number";
             phone_numberField.style.border = "1px solid red";
         } else {
-            phone_numberField.style.border = "";
+            phone_numberField.style.border = "1px solid green";
         }
     };
 
@@ -57,14 +75,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Reset previous error messages
         no_of_employeesError.textContent = "";
-
+        const numberRegex = /^[1-9]\d{0,6}$/;
         // Validate Weight
         const no_of_employees = parseInt(no_of_employeesField.value);
-        if (no_of_employees<0) {
+        if (!numberRegex.test(no_of_employees)) {
             no_of_employeesError.textContent = "Please enter a valid number of employees";
             phone_numberField.style.border = "1px solid red";
         } else {
-            phone_numberField.style.border = "";
+            phone_numberField.style.border = "1px solid green";
         }
     };
 
@@ -77,11 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Validate Weight
 //        const vaccine_recieved = vaccine_recieved_boolField.value;
-        if (!vaccine_recieved_boolField.value.trim()) {
-            vaccine_recieved_boolError.textContent = "Please enter Yes or No";
+        if (vaccine_recieved_boolField.value=="") {
+            vaccine_recieved_boolError.textContent = "Please select an option";
             vaccine_recieved_boolField.style.border = "1px solid red";
         } else {
-            vaccine_recieved_boolField.style.border = "";
+            vaccine_recieved_boolField.style.border = "1px solid green";
         }
     };
 
@@ -93,12 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
         items_in_inventoryError.textContent = "";
 
         // Validate Weight
+        const numberRegex = /^[1-9]\d{0,8}$/;
         const items = parseInt(items_in_inventoryField.value);
-        if (isNaN(items) || items<0) {
+        if (!numberRegex.test(items)) {
             items_in_inventoryError.textContent = "Please enter a valid value";
             items_in_inventoryField.style.border = "1px solid red";
         } else {
-            items_in_inventoryField.style.border = "";
+            items_in_inventoryField.style.border = "1px solid green";
         }
     };
 
@@ -111,11 +130,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Validate Weight
 //        const vaccine = vaccine_prefField.value.trim();
-        if (!vaccine_prefField.value.trim()) {
-            vaccine_prefError.textContent = "Please enter a valid value";
+        if (vaccine_prefField.value=="") {
+            vaccine_prefError.textContent = "Please select an option";
             vaccine_prefField.style.border = "1px solid red";
         } else {
-            vaccine_prefField.style.border = "";
+            vaccine_prefField.style.border = "1px solid green";
         }
     };
 
@@ -128,11 +147,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Validate Weight
         const accessibility = accessibility_boolField.value.trim();
-        if (!accessibility_boolField.value.trim()) {
-            accessibility_boolError.textContent = "Please enter a Yes or No";
+        if (accessibility_boolField.value=="") {
+            accessibility_boolError.textContent = "Please select an option";
             accessibility_boolField.style.border = "1px solid red";
         } else {
-            accessibility_boolField.style.border = "";
+            accessibility_boolField.style.border = "1px solid green";
         }
     };
 

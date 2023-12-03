@@ -20,28 +20,41 @@
     <input type="email" id="email" name="email" required>
     <div class="error-message" id="email-error"></div>
 
-    <label for="phone_number">Phone number:</label>
+    <label for="phone_number">Phone number (10 digits):</label>
     <input type="tel" id="phone_number" name="phone_number" required>
     <div class="error-message" id="phone_number-error"></div>
 
-    <label for="no_of_employees">How many employees are currently working at your business?</label>
+    <label for="no_of_employees">How many employees are currently working at your business? (should be less than 1,00,00,000)</label>
     <input type="text" id="no_of_employees" name="no_of_employees" required>
     <div class="error-message" id="no_of_employees-error"></div>
 
     <label for="vaccine_recieved_bool">Has your business already received any doses of the COVID-19 vaccine? (Yes/No)</label>
-    <input type="text" id="vaccine_recieved_bool" name="vaccine_recieved_bool" required>
+    <select id="vaccine_recieved_bool" name="vaccine_recieved_bool" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option></select>
     <div class="error-message" id="vaccine_recieved_bool-error"></div>
 
-    <label for="items_in_inventory">On average, how many products/items does your business manage in its daily inventory?</label>
+    <label for="items_in_inventory">On average, how many products/items does your business manage in its daily inventory? (less than 1,00,00,00,000)</label>
     <input type="number" id="items_in_inventory" name="items_in_inventory" required>
     <div class="error-message" id="items_in_inventory-error"></div>
 
     <label for="vaccine_pref">Does your business have a preference for a specific type of COVID-19 vaccine? </label>
-    <input type="text" id="vaccine_pref" name="vaccine_pref" required>
+    <select id="vaccine_pref" name="vaccine_pref" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="Covaccine">Covaccine</option>
+        <option value="Novavax">Novavax</option>
+        <option value="Valneva">Valneva</option>
+        <option value="CoronaVac">CoronaVac</option>
+        <option value="Sputnik Light">Sputnik Light</option>
+        <option value="Covax">Covax</option></select>
     <div class="error-message" id="vaccine_pref-error"></div>
 
     <label for="accessibility_bool">Are there any accessibility concerns or accommodations needed for the vaccination process at your business location? (Yes/No)</label>
-    <input type="text" id="accessibility_bool" name="accessibility_bool" required>
+    <select id="accessibility_bool" name="accessibility_bool" required>
+        <option value="" disabled selected>Select an option</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option></select>
     <div class="error-message" id="accessibility_bool-error"></div>
 
     <button type="submit">Submit</button>
