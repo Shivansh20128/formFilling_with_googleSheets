@@ -1,4 +1,4 @@
-# Atlan Task
+# Form Filling with Google Sheets
 
 This repository contains the code for making a form. For my case, I have added a form for a government delivering vaccines to small business owners managing their daily inventory.
 The form contains a set of questions the answers to whom can be text, numbers, email IDs or optional questions.
